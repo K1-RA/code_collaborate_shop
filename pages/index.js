@@ -1,10 +1,10 @@
-import styles from "../styles/Home.module.scss";
+import { MyComponent, MySecondComponent } from "../components";
+
 export default function Home() {
   return (
     <>
-      <div className={styles.container}>
-        <p className={styles.paragraph}>This is a container using SCSS module styling :)</p>
-      </div>
+      <MyComponent title="This is a component" />
+      <MySecondComponent />
     </>
   );
 }
