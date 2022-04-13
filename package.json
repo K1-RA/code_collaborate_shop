@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/jockey-one": "^4.5.6",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "next": "12.1.4",
     "react": "18.0.0",
