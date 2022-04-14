@@ -1,5 +1,5 @@
-import "../styles/globals.scss";
-
+import '../styles/globals.scss';
+import '@fontsource/jockey-one';
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
