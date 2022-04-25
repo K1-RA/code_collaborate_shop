@@ -1,6 +1,6 @@
 import '../styles/globals.scss';
 import '@fontsource/jockey-one';
-import { Layout } from '../Components/';
+import { Layout } from '../components';
 function MyApp({ Component, pageProps }) {
 	return (
 		<Layout>
