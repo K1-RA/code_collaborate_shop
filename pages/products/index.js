@@ -1,4 +1,4 @@
-import { ProductsList } from '../../components/';
+import { ProductsList } from '../../components';
 export default function Products({ items }) {
 	return (
 		<>
