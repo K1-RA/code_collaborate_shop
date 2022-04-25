@@ -1,0 +1,19 @@
+.navbar {
+	height: 80px;
+
+	svg {
+		height: 1em;
+	}
+
+	ul {
+		display: flex;
+		justify-content: space-between;
+		list-style: none;
+	}
+}
+
+@media screen and (max-width: 481px) {
+	.navbar {
+		background-color: red;
+	}
+}
