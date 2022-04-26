@@ -10,7 +10,7 @@ export default function Products({ items }) {
 	);
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 	const res = await fetch('http://localhost:8080/api/products/');
 	const items = await res.json();
 

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './ProductsList.module.scss';
+import Link from 'next/dist/client/link';
 
 export default function ProductsList({ item }) {
 	return (
@@ -13,9 +14,11 @@ export default function ProductsList({ item }) {
 				alt={`${item.brand} ${item.name} ${item.type}`}
 				src={item.imageUrl}
 			/>
-			<h2>
-				{item.brand} {item.name} {item.type}
-			</h2>
+			<Link href={`/products/${item._id}`}>
+				<a>
+					{item.brand} {item.name} {item.type}
+				</a>
+			</Link>
 			<p>{item.price} SEK</p>
 		</>
 	);
