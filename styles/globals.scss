@@ -23,8 +23,13 @@ body {
 	grid-template-columns: repeat(2, 1fr);
 	margin: 0 auto;
 	gap: 10px;
-	background-color:#f3eff5;	
+	background-color: #f3eff5;
 }
 .productProducts {
 	padding-left: 0.35em;
+}
+
+.h1Styling {
+	text-align: center;
+	margin-top: 50px;
 }

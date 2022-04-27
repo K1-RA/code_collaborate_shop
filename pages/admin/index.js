@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import style from './admin.module.scss';
+import { Button } from '../../components';
 
 const Admin = () => {
 	const [formData, setFormData] = useState({
@@ -17,23 +18,29 @@ const Admin = () => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		const user = await fetch('http://localhost:8080/api/admin/login', {
+		if (!email || !password) {
+			alert(`Please enter both email and password`);
+			return;
+		}
+		await fetch('http://localhost:8080/api/admin/login', {
 			method: 'POST',
 			headers: {
-				'content-type': 'application/json',
+				'Content-Type': 'application/json',
 			},
-			body: {
+			body: JSON.stringify({
 				email,
 				password,
-			},
+			}),
 		})
 			.then((res) => res.json())
-			.then((data) => console.log(data));
+			.then((data) =>
+				localStorage.setItem('token', JSON.stringify(data.token))
+			);
 	};
 
 	return (
 		<div>
-			<h1 className={style.h1Styling}>Login</h1>
+			<h1 className={'h1Styling'}>Login</h1>
 			<form onSubmit={onSubmit}>
 				<input
 					type='email'
@@ -51,6 +58,7 @@ const Admin = () => {
 					value={password}
 					onChange={onChange}
 				/>
+				<Button type='submit' text='Login' />
 				<button type='submit'>Login</button>
 			</form>
 		</div>
