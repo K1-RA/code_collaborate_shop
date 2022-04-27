@@ -1,4 +1,4 @@
-import { WrappedBuildError } from 'next/dist/server/base-server';
+
 import Image from 'next/image';
 import styles from './Product.module.scss';
 import Button from '../Button/Button';
