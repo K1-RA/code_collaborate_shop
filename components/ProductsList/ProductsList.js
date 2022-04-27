@@ -1,25 +1,52 @@
 import Image from 'next/image';
+import Button from '../Button/Button';
 import styles from './ProductsList.module.scss';
-import Link from 'next/dist/client/link';
-
+import Link from 'next/link';
 export default function ProductsList({ item }) {
 	return (
-		<>
-			<Image
-				unoptimized={true} /* change to loader to optimise */
-				width={180}
-				height={200}
-				objectFit={'contain'}
-				layout={'responsive'}
-				alt={`${item.brand} ${item.name} ${item.type}`}
-				src={item.imageUrl}
-			/>
-			<Link href={`/products/${item._id}`}>
-				<a>
-					{item.brand} {item.name} {item.type}
-				</a>
-			</Link>
-			<p>{item.price} SEK</p>
-		</>
+		item && (
+			<>
+				<Link
+					passHref={true}
+					href={`http://localhost:3000/products/${item._id}`}
+				>
+					<div
+						style={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '0.5em',
+							justifyContent: 'space-between',
+							width: '180px',
+						}}
+						className={styles.productItem}
+					>
+						<div
+							style={{ height: '300px', width: '100%', position: 'relative' }}
+						>
+							<Image
+								unoptimized={true}
+								// width={180}
+								// height={200}
+								objectFit={'contain'}
+								layout={'fill'}
+								alt={`${item.brand} ${item.name} ${item.type}`}
+								src={item.imageUrl}
+							/>
+						</div>
+						<h2>
+							{item.brand} {item.name}{' '}
+							{item.type === 'skateboard' ? (
+								<span>Skate&shy;board</span>
+							) : (
+								`${item.type}`
+							)}
+						</h2>
+
+						<p className={styles.productPrice}>{item.price} SEK</p>
+						{/* <Button text={'Buy'} /> */}
+					</div>
+				</Link>
+			</>
+		)
 	);
 }

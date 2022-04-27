@@ -15,4 +15,16 @@ body {
 }
 .grid-container {
 	display: grid;
+	// gap: 1em;
+}
+
+.productContainer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	margin: 0 auto;
+	gap: 10px;
+	background-color:#f3eff5;	
+}
+.productProducts {
+	padding-left: 0.35em;
 }
