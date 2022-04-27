@@ -1,8 +1,11 @@
-import { ProductsList } from '../../components';
+import { ProductsFilter, ProductsList } from '../../components';
+
 export default function Products({ items }) {
 	return (
 		<>
 			<h1 className='productProducts'>Products</h1>
+
+			<ProductsFilter />
 			<div className='productContainer'>
 				{items &&
 					items.map((item) => {
