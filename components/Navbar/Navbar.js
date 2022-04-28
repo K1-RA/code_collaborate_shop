@@ -9,6 +9,10 @@ export default function Navbar() {
 		setActive(!isActive);
 	};
 
+	const setFalse = () => {
+		setActive('false');
+	};
+
 	console.log(isActive);
 
 	return (
@@ -28,7 +32,7 @@ export default function Navbar() {
 
 				<li className={styles.logo}>
 					<Link href='/'>
-						<a> Skatebords LOL</a>
+						<a onClick={setFalse}> Skatebords LOL</a>
 					</Link>
 				</li>
 
@@ -46,7 +50,7 @@ export default function Navbar() {
 					}`}
 				>
 					<Link href='/products'>
-						<a>Products</a>
+						<a onClick={handleToggle}>Products</a>
 					</Link>
 				</li>
 				<li
@@ -54,7 +58,7 @@ export default function Navbar() {
 						!isActive ? styles.showLinks : null
 					}`}
 				>
-					<a>Admin</a>
+					<a onClick={handleToggle}>Admin</a>
 				</li>
 			</ul>
 		</nav>
