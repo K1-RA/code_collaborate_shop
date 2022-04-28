@@ -1,10 +1,11 @@
-async function postToCart(data = {}, items) {
-	if (!items) {
+async function postToCart(data = {}) {
+	const cartId = localStorage.getItem('cartId');
+	if (!cartId) {
 		const URL = 'http://localhost:8080/api/cart/';
 		const response = await fetch(URL, {
 			method: 'POST',
-			credentials: 'include',
-			mode: 'cors',
+			// credentials: 'include',
+			// mode: 'cors',
 			headers: {
 				'Content-Type': 'application/json',
 			},
@@ -12,13 +13,13 @@ async function postToCart(data = {}, items) {
 		})
 			.then((res) => res.json())
 			.catch((err) => console.log(err));
-		return response;
-	} else if (items) {
-		const URL = `http://localhost:8080/api/cart/${items.cartId}`;
+		localStorage.setItem('cartId', response.cartId);
+	} else if (cartId) {
+		const URL = `http://localhost:8080/api/cart/${cartId}`;
 		const response = await fetch(URL, {
 			method: 'POST',
-			credentials: 'include',
-			mode: 'cors',
+			// credentials: 'include',
+			// mode: 'cors',
 			headers: {
 				'Content-Type': 'application/json',
 			},
