@@ -12,6 +12,11 @@ body {
 		text-decoration: none;
 		color: black;
 	}
+	h1 {
+		text-align: center;
+		margin-top: 50px;
+		padding-bottom: 10px;
+	}
 }
 .grid-container {
 	display: grid;
@@ -27,9 +32,4 @@ body {
 }
 .productProducts {
 	padding-left: 0.35em;
-}
-
-.h1Styling {
-	text-align: center;
-	margin-top: 50px;
 }

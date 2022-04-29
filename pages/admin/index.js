@@ -39,9 +39,9 @@ const Admin = () => {
 	};
 
 	return (
-		<div>
+		<div className={style.adminContainer}>
 			<h1 className={'h1Styling'}>Login</h1>
-			<form onSubmit={onSubmit}>
+			<form onSubmit={onSubmit} className={style.adminForm}>
 				<input
 					type='email'
 					name='email'
@@ -59,7 +59,6 @@ const Admin = () => {
 					onChange={onChange}
 				/>
 				<Button type='submit' text='Login' />
-				<button type='submit'>Login</button>
 			</form>
 		</div>
 	);

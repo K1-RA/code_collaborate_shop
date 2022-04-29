@@ -54,7 +54,9 @@ export default function Navbar() {
 						!isActive ? styles.showLinks : null
 					}`}
 				>
-					<a>Admin</a>
+					<Link href='/admin'>
+						<a>Admin</a>
+					</Link>
 				</li>
 			</ul>
 		</nav>
