@@ -1,17 +1,25 @@
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
 	const [isActive, setActive] = useState('false');
+	// const router = useRouter();
+
+	// useEffect(() => {
+	// 	if (!isActive) {
+	// 		setActive(isActive);
+	// 	}
+	// }, [router.asPath, isActive]);
 
 	const handleToggle = () => {
 		setActive(!isActive);
 	};
 
-	const setFalse = () => {
-		setActive('false');
-	};
+	// const setFalse = () => {
+	// 	setActive('false');
+	// };
 
 	console.log(isActive);
 
@@ -32,7 +40,7 @@ export default function Navbar() {
 
 				<li className={styles.logo}>
 					<Link href='/'>
-						<a onClick={setFalse}> Skatebords LOL</a>
+						<a> Skatebords LOL</a>
 					</Link>
 				</li>
 
