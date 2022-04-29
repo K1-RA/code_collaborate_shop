@@ -23,8 +23,28 @@ body {
 	grid-template-columns: repeat(2, 1fr);
 	margin: 0 auto;
 	gap: 10px;
-	background-color:#f3eff5;	
+	background-color: #f3eff5;
 }
 .productProducts {
 	padding-left: 0.35em;
+}
+.cartItems {
+	display: flex;
+	margin: 0.5em 1em;
+	flex-direction: column;
+	border: black 1px solid;
+	.cartItemsContent {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+	.cartItemsImg {
+		position: relative;
+		width: 100px;
+		height: 100px;
+	}
+	.cartItemsButtons {
+		display: flex;
+		gap: 1em;
+	}
 }

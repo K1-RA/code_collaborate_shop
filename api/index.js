@@ -1,5 +1,6 @@
 async function postToCart(data = {}) {
-	const cartId = localStorage.getItem('cartId');
+	const cartId = JSON.parse(localStorage.getItem('cartId'));
+	console.log(cartId);
 	if (!cartId) {
 		const URL = 'http://localhost:8080/api/cart/';
 		const response = await fetch(URL, {
@@ -13,7 +14,7 @@ async function postToCart(data = {}) {
 		})
 			.then((res) => res.json())
 			.catch((err) => console.log(err));
-		localStorage.setItem('cartId', response.cartId);
+		localStorage.setItem('cartId', JSON.stringify(response.cartId));
 	} else if (cartId) {
 		const URL = `http://localhost:8080/api/cart/${cartId}`;
 		const response = await fetch(URL, {
