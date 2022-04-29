@@ -1,13 +1,25 @@
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
 	const [isActive, setActive] = useState('false');
+	// const router = useRouter();
+
+	// useEffect(() => {
+	// 	if (!isActive) {
+	// 		setActive(isActive);
+	// 	}
+	// }, [router.asPath, isActive]);
 
 	const handleToggle = () => {
 		setActive(!isActive);
 	};
+
+	// const setFalse = () => {
+	// 	setActive('false');
+	// };
 
 	console.log(isActive);
 
@@ -46,7 +58,7 @@ export default function Navbar() {
 					}`}
 				>
 					<Link href='/products'>
-						<a>Products</a>
+						<a onClick={handleToggle}>Products</a>
 					</Link>
 				</li>
 				<li
@@ -55,7 +67,7 @@ export default function Navbar() {
 					}`}
 				>
 					<Link href='/admin'>
-						<a>Admin</a>
+						<a onClick={handleToggle}>Admin</a>
 					</Link>
 				</li>
 			</ul>
