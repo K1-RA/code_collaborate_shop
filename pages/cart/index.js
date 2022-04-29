@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { postToCart } from '../../api';
 
 export default function Cart() {
 	let id;
@@ -21,5 +20,7 @@ export default function Cart() {
 		localStorage.setItem('cartId', JSON.stringify(cartId));
 		setCartId(cartId);
 	}, [cartId]);
+
+	console.log(cart);
 	return <div>This is a cart yooooooo</div>;
 }
