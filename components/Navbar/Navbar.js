@@ -66,7 +66,9 @@ export default function Navbar() {
 						!isActive ? styles.showLinks : null
 					}`}
 				>
-					<a onClick={handleToggle}>Admin</a>
+					<Link href='/admin'>
+						<a onClick={handleToggle}>Admin</a>
+					</Link>
 				</li>
 			</ul>
 		</nav>

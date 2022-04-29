@@ -1,9 +1,11 @@
 import styles from './Button.module.scss';
 
-export default function Button({ text }) {
+export default function Button({ text, type = 'button' }) {
 	return (
 		<>
-			<button className={styles.button}>{text}</button>
+			<button type={type} className={styles.button}>
+				{text}
+			</button>
 		</>
 	);
 }
