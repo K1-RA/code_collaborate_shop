@@ -34,6 +34,50 @@ body {
 	padding-left: 0.35em;
 }
 
+.cartItems {
+	display: flex;
+	margin: 0.5em 1em;
+	flex-direction: column;
+	border: black 1px solid;
+	// padding-left: 25px;
+	.cartItemsContent {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+	.cartItemsImg {
+		position: relative;
+		width: 100px;
+		height: 100px;
+	}
+	.cartItemsButtons {
+		display: flex;
+		
+		gap: 1em;
+		.cartItemsButtonButton {
+			width: 20px;
+		}
+		.qtyText {
+			width: 11em;
+		}
+	}
+	.cartItemsFlex {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+	// .cartPrice {
+	// 	padding-left: 25px
+	// }
+}
+
+.totalCartPrice {
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 1rem;
+
+
 .formContainer {
 	align-items: center;
 	display: flex;
