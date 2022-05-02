@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import style from './admin.module.scss';
 import { Button } from '../../components';
 
@@ -8,6 +9,7 @@ const Admin = () => {
 		password: '',
 	});
 	const { email, password } = formData;
+	const router = useRouter();
 
 	const onChange = (e) => {
 		setFormData((prevState) => ({
@@ -33,9 +35,14 @@ const Admin = () => {
 			}),
 		})
 			.then((res) => res.json())
-			.then((data) =>
-				localStorage.setItem('token', JSON.stringify(data.token))
-			);
+			.then((data) => {
+				localStorage.setItem('token', JSON.stringify(data.token));
+				router.push('/admin/orders');
+			})
+			.catch((err) => {
+				console.log(err);
+				alert('Wrong email or password');
+			});
 	};
 
 	return (
