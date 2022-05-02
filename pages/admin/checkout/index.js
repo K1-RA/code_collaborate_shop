@@ -1,8 +1,10 @@
 import styles from './checkout.module.scss';
 import { Button } from '../../../components';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Checkout() {
+	const [complete, setComplete] = useState(false);
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -17,6 +19,11 @@ export default function Checkout() {
 			[e.target.name]: e.target.value,
 		}));
 	};
+
+	let cartId;
+	if (typeof window !== 'undefined') {
+		cartId = JSON.parse(localStorage.getItem('cartId'));
+	}
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
@@ -36,49 +43,63 @@ export default function Checkout() {
 				email,
 				adress,
 				city,
+				cartId: cartId,
 			}),
 		}).then((res) => res.json());
+		setComplete(true);
 	};
 
 	return (
 		<div className={'formContainer'}>
-			<h1>Checkout</h1>
-			<form onSubmit={onSubmit} className={'classForm'}>
-				<input
-					type='text'
-					name='name'
-					id='name'
-					placeholder='Enter full name'
-					value={name}
-					onChange={onChange}
-				/>
-				<input
-					type='email'
-					name='email'
-					id='email'
-					placeholder='Enter your email'
-					value={email}
-					onChange={onChange}
-				/>
-				<input
-					type='text'
-					name='adress'
-					id='adress'
-					placeholder='Enter your address'
-					value={adress}
-					onChange={onChange}
-				/>
-				<input
-					type='text'
-					name='city'
-					id=''
-					placeholder='City'
-					value={city}
-					onChange={onChange}
-				/>
+			{complete ? (
+				<>
+					<h1>Thank you for your order</h1>
+					<Link href='/'>
+						<a>Go back to home page</a>
+					</Link>
+				</>
+			) : (
+				<>
+					{' '}
+					<h1>Checkout</h1>
+					<form onSubmit={onSubmit} className={'classForm'}>
+						<input
+							type='text'
+							name='name'
+							id='name'
+							placeholder='Enter full name'
+							value={name}
+							onChange={onChange}
+						/>
+						<input
+							type='email'
+							name='email'
+							id='email'
+							placeholder='Enter your email'
+							value={email}
+							onChange={onChange}
+						/>
+						<input
+							type='text'
+							name='adress'
+							id='adress'
+							placeholder='Enter your address'
+							value={adress}
+							onChange={onChange}
+						/>
+						<input
+							type='text'
+							name='city'
+							id=''
+							placeholder='City'
+							value={city}
+							onChange={onChange}
+						/>
 
-				<Button type='submit' text='Place order' />
-			</form>
+						<Button type='submit' text='Place order' />
+					</form>
+				</>
+			)}
 		</div>
 	);
 }
