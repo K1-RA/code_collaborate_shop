@@ -33,3 +33,34 @@ body {
 .productProducts {
 	padding-left: 0.35em;
 }
+
+.formContainer {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.classForm {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		max-width: 400px;
+		width: 100%;
+
+		@media screen and (max-width: 480px) {
+			padding: 0 5%;
+		}
+
+		input {
+			border-radius: 5px;
+			border-width: 1px;
+			margin-bottom: 10px;
+			padding: 7px;
+		}
+
+		button {
+			margin-top: 10px;
+		}
+	}
+}
