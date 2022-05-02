@@ -1,8 +1,7 @@
-
 import Image from 'next/image';
 import styles from './Product.module.scss';
 import Button from '../Button/Button';
-
+import { postToCart } from '../../api';
 export default function Product({ product }) {
 	return (
 		<div
@@ -47,7 +46,12 @@ export default function Product({ product }) {
 					{product.inStock
 						? 'In Stock'
 						: 'Out of Stock. Notify me when available!'}
-					<Button text={'Add to cart'} />
+					<Button
+						onClick={() => {
+							postToCart({ id: product._id });
+						}}
+						text={'Add to cart'}
+					/>
 				</i>
 			</div>
 		</div>
