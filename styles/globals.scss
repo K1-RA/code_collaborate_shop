@@ -33,6 +33,7 @@ body {
 .productProducts {
 	padding-left: 0.35em;
 }
+
 .cartItems {
 	display: flex;
 	margin: 0.5em 1em;
@@ -51,7 +52,7 @@ body {
 	}
 	.cartItemsButtons {
 		display: flex;
-		
+
 		gap: 1em;
 		.cartItemsButtonButton {
 			width: 20px;
@@ -75,4 +76,35 @@ body {
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 1rem;
+}
+
+.formContainer {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	.classForm {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		max-width: 400px;
+		width: 100%;
+
+		@media screen and (max-width: 480px) {
+			padding: 0 5%;
+		}
+
+		input {
+			border-radius: 5px;
+			border-width: 1px;
+			margin-bottom: 10px;
+			padding: 7px;
+		}
+
+		button {
+			margin-top: 10px;
+		}
+	}
 }
