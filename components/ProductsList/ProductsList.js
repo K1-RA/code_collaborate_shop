@@ -2,7 +2,14 @@ import Image from 'next/image';
 import Button from '../Button/Button';
 import styles from './ProductsList.module.scss';
 import Link from 'next/link';
+import { useState } from 'react';
 export default function ProductsList({ item }) {
+	const [isActive, setActive] = useState('false');
+
+	const setFalse = () => {
+		setActive('false');
+	};
+
 	return (
 		item && (
 			<>
