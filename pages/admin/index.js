@@ -15,7 +15,7 @@ const Admin = () => {
 		if (localStorage.getItem('token')) {
 			router.push('/admin/orders');
 		}
-	});
+	}, [router]);
 
 	const onChange = (e) => {
 		setFormData((prevState) => ({
