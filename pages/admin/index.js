@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import style from './admin.module.scss';
 import { Button } from '../../components';
@@ -10,6 +10,12 @@ const Admin = () => {
 	});
 	const { email, password } = formData;
 	const router = useRouter();
+
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			router.push('/admin/orders');
+		}
+	});
 
 	const onChange = (e) => {
 		setFormData((prevState) => ({

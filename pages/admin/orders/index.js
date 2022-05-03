@@ -1,15 +1,29 @@
 import styles from './orders.module.scss';
 import { useState, useEffect } from 'react';
-
+import { useRouter } from 'next/router';
 const Orders = () => {
 	const [order, setOrders] = useState([]);
+	const router = useRouter();
 
 	useEffect(() => {
-		fetch('http://localhost:8080/api/orders/')
+		const token = localStorage.getItem('token');
+		if (!token) {
+			router.push('/admin');
+		}
+		console.log(token);
+		fetch('http://localhost:8080/api/orders', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				token,
+			}),
+		})
 			.then((res) => res.json())
 			.then((json) => setOrders(json))
 			.catch((err) => console.log(err.message));
-	}, []);
+	}, [router]);
 
 	console.log(order);
 
