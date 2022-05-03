@@ -2,7 +2,7 @@ import styles from './orders.module.scss';
 import { useState, useEffect } from 'react';
 
 const Orders = () => {
-	const [order, setOrders] = useState([]);
+	const [orders, setOrders] = useState([]);
 
 	useEffect(() => {
 		fetch('http://localhost:8080/api/orders/')
@@ -11,7 +11,7 @@ const Orders = () => {
 			.catch((err) => console.log(err.message));
 	}, []);
 
-	console.log(order);
+	console.log(orders);
 
 	// 	useEffect(async () => {
 	// const data = await loadOrders()
@@ -31,30 +31,35 @@ const Orders = () => {
 	return (
 		<div>
 			<h1>Orders</h1>
-			{/* <div>
-				<table className={styles.table}>
-					<tr>
-						<td className={styles.tdOrders} colSpan='2'>
-							#2123123123
-						</td>
-					</tr>
-					<tr>
-						<td className={styles.tdTag}>Name</td>
-						<td>Julia Wos</td>
-					</tr>
-					<tr>
-						<td>Adress</td>
-						<td>dfafjnvkdfj</td>
-					</tr>
-					<tr>
-						<td> Order status: </td>
-						<td>
-							{' '}
-							<input type='radio' /> Sent{' '}
-						</td>
-					</tr>
-				</table>
-			</div> */}
+			<div>
+				{orders &&
+					orders.map((order) => {
+						return (
+							<table className={styles.table} key={order._id}>
+								<tr>
+									<td className={styles.tdOrders} colSpan='2'>
+										{order.cartId}
+									</td>
+								</tr>
+								<tr>
+									<td className={styles.tdTag}>Name</td>
+									<td>{order.name}</td>
+								</tr>
+								<tr>
+									<td>Adress</td>
+									<td>{order.address}</td>
+								</tr>
+								<tr>
+									<td> Order status: </td>
+									<td>
+										{' '}
+										<input type='radio' /> Sent{' '}
+									</td>
+								</tr>
+							</table>
+						);
+					})}
+			</div>
 		</div>
 	);
 };
