@@ -45,7 +45,9 @@ export default function Checkout() {
 				city,
 				cartId: cartId,
 			}),
-		}).then((res) => res.json());
+		})
+			.then((res) => res.json())
+			.then(() => localStorage.removeItem('cartId'));
 		setComplete(true);
 	};
 
