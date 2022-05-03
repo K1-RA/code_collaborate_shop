@@ -21,12 +21,32 @@ body {
 }
 
 .landing-page-body {
-	background-image: url("/sk8rboyz.jpg");
+	background-image: url('/skatepark.jpg');
+	height: calc(100vh - 80px);
 	background-size: cover;
+	background-repeat: no-repeat;
+
+	// background-size: cover;
+}
+
+.lading-page-logo {
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	font-size: 15vw;
+	transform: translateX(-50%);
+
+	mix-blend-mode: difference;
+	filter: invert(1);
+
+	@media screen and (min-width: 1024px) {
+		font-size: 8vw;
+	}
 }
 
 .grid-container {
 	display: grid;
+
 	// gap: 1em;
 }
 
