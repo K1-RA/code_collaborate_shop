@@ -8,10 +8,10 @@ export default function Checkout() {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
-		adress: '',
+		address: '',
 		city: '',
 	});
-	const { name, email, adress, city } = formData;
+	const { name, email, address, city } = formData;
 
 	const onChange = async (e) => {
 		setFormData((prevState) => ({
@@ -28,7 +28,7 @@ export default function Checkout() {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		if (!name || !email || !adress || !city) {
+		if (!name || !email || !address || !city) {
 			alert('Please fill in all fields');
 			return;
 		}
@@ -41,7 +41,7 @@ export default function Checkout() {
 			body: JSON.stringify({
 				name,
 				email,
-				adress,
+				address,
 				city,
 				cartId: cartId,
 			}),
@@ -81,10 +81,10 @@ export default function Checkout() {
 						/>
 						<input
 							type='text'
-							name='adress'
-							id='adress'
+							name='address'
+							id='address'
 							placeholder='Enter your address'
-							value={adress}
+							value={address}
 							onChange={onChange}
 						/>
 						<input
