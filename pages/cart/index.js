@@ -7,10 +7,40 @@ export default function Cart() {
 	if (typeof window !== 'undefined') {
 		id = JSON.parse(localStorage.getItem('cartId'));
 	}
+
+	async function incToCart(data = {}) {
+		const URL = `http://localhost:8080/api/cart/${cartId}`;
+		const response = await fetch(URL, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.catch((err) => console.log(err));
+		return response;
+	}
+
+	async function decToCart(data = {}) {
+		const URL = `http://localhost:8080/api/cart/${cartId}`;
+		const response = await fetch(URL, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		});
+		console.log('res', response);
+		console.log('res.bodyc', response.body);
+		return response;
+	}
+
 	const [cartId, setCartId] = useState(id);
 	const [cart, setCart] = useState('');
 	const [totalPrice, setTotalPrice] = useState(0);
-	console.log('tp', totalPrice);
+	//const [increment, setIncrement] = useState(null);
+	//const [decrement, setDecrement] = useState(null);
 
 	console.log(cartId);
 	useEffect(() => {
@@ -23,7 +53,7 @@ export default function Cart() {
 		} catch (err) {
 			console.log(err.message);
 		}
-	}, [cartId]);
+	}, [cartId]); //, increment, decrement
 
 	useEffect(() => {
 		localStorage.setItem('cartId', JSON.stringify(cartId));
@@ -31,15 +61,14 @@ export default function Cart() {
 	}, [cartId]);
 
 	console.log(cart);
+
 	return (
 		<>
 			{cart &&
 				cart.products.map((item, i) => {
+					console.log('cart.cart.products[i]._id', cart.cart.products[i]._id);
 					{
 						totalPrice += +item.price * cart.cart.products[i].qty;
-					}
-					{
-						console.log('mtp', totalPrice);
 					}
 					return (
 						<div key={i} className='cartItems'>
@@ -63,14 +92,16 @@ export default function Cart() {
 											className='cartItemsButtonButton'
 											text={'-'}
 											onClick={() => {
-												fetch('');
+												decToCart({ id: cart.cart.products[i]._id });
 											}}
 										/>
 										<p className='qtyText'>Qty: {cart.cart.products[i].qty}</p>
 										<Button
 											className='cartItemsButtonButton'
 											text={'+'}
-											onClick={() => {}}
+											onClick={() => {
+												incToCart({ id: cart.cart.products[i]._id });
+											}}
 										/>
 										<Button
 											className='cartItemsButtonButton'
