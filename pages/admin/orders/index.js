@@ -2,7 +2,7 @@ import styles from './orders.module.scss';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 const Orders = () => {
-	const [order, setOrders] = useState([]);
+	const [orders, setOrders] = useState([]);
 	const router = useRouter();
 
 	useEffect(() => {
@@ -24,7 +24,6 @@ const Orders = () => {
 			.then((json) => setOrders(json))
 			.catch((err) => console.log(err.message));
 	}, [router]);
-
 
 	return (
 		<div>
