@@ -5,24 +5,16 @@ import { useRouter } from 'next/router';
 
 export default function Navbar() {
 	const [isActive, setActive] = useState('false');
+	const [token, setToken] = useState(null);
 	const router = useRouter();
-	let token = null;
-	if (typeof window !== 'undefined') {
-		token = JSON.parse(localStorage.getItem('token'));
-	}
-	// useEffect(() => {
-	// 	if (!isActive) {
-	// 		setActive(isActive);
-	// 	}
-	// }, [router.asPath, isActive]);
+
+	useEffect(() => {
+		setToken(JSON.parse(localStorage.getItem('token')));
+	}, [token, setToken]);
 
 	const handleToggle = () => {
 		setActive(!isActive);
 	};
-
-	// const setFalse = () => {
-	// 	setActive('false');
-	// };
 
 	return (
 		<nav className={styles.navbar}>
@@ -82,6 +74,7 @@ export default function Navbar() {
 						<button
 							onClick={() => {
 								localStorage.removeItem('token');
+								setToken(null);
 								router.push('/');
 							}}
 						>
