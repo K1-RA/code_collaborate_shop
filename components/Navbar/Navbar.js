@@ -5,8 +5,11 @@ import { useRouter } from 'next/router';
 
 export default function Navbar() {
 	const [isActive, setActive] = useState('false');
-	// const router = useRouter();
-
+	const router = useRouter();
+	let token = null;
+	if (typeof window !== 'undefined') {
+		token = JSON.parse(localStorage.getItem('token'));
+	}
 	// useEffect(() => {
 	// 	if (!isActive) {
 	// 		setActive(isActive);
@@ -72,6 +75,22 @@ export default function Navbar() {
 						<a onClick={handleToggle}>Admin</a>
 					</Link>
 				</li>
+				{token && (
+					<li
+						className={`${styles.hideLinks} ${
+							!isActive ? styles.showLinks : null
+						}`}
+					>
+						<button
+							onClick={() => {
+								localStorage.removeItem('token');
+								router.push('/');
+							}}
+						>
+							Logout
+						</button>
+					</li>
+				)}
 			</ul>
 		</nav>
 	);
