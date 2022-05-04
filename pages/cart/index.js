@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '../../components';
+import Link from 'next/link';
 
 export default function Cart() {
 	let id;
@@ -124,7 +125,11 @@ export default function Cart() {
 			<div className='totalCartPrice'>
 				<p>Total price: {totalPrice} SEK</p>
 			</div>
-			<Button text={'Checkout now!'} />
+			<Link passHref={true} href='cart/checkout'>
+				<a>
+					<Button text={'Checkout now!'} />
+				</a>
+			</Link>
 		</>
 	);
 }
