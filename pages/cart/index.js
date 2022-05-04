@@ -125,7 +125,7 @@ export default function Cart() {
 			<div className='totalCartPrice'>
 				<p>Total price: {totalPrice} SEK</p>
 			</div>
-			<Link passHref={true} href='/admin/checkout'>
+			<Link passHref={true} href='cart/checkout'>
 				<a>
 					<Button text={'Checkout now!'} />
 				</a>
