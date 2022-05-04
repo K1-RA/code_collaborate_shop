@@ -47,8 +47,10 @@ export default function Product({ product }) {
 						? 'In Stock'
 						: 'Out of Stock. Notify me when available!'}
 					<Button
+						inStock={product.inStock ? false : true}
 						onClick={() => {
 							postToCart({ id: product._id });
+							alert('Added to cart :)');
 						}}
 						text={'Add to cart'}
 					/>

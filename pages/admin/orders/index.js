@@ -33,26 +33,28 @@ const Orders = () => {
 					orders.map((order) => {
 						return (
 							<table className={styles.table} key={order._id}>
-								<tr>
-									<td className={styles.tdOrders} colSpan='2'>
-										{order.cartId}
-									</td>
-								</tr>
-								<tr>
-									<td className={styles.tdTag}>Name</td>
-									<td>{order.name}</td>
-								</tr>
-								<tr>
-									<td>Adress</td>
-									<td>{order.address}</td>
-								</tr>
-								<tr>
-									<td> Order status: </td>
-									<td>
-										{' '}
-										<input type='radio' /> Sent{' '}
-									</td>
-								</tr>
+								<tbody>
+									<tr>
+										<td className={styles.tdOrders} colSpan='2'>
+											{order.cartId}
+										</td>
+									</tr>
+									<tr>
+										<td className={styles.tdTag}>Name</td>
+										<td>{order.name}</td>
+									</tr>
+									<tr>
+										<td>Adress</td>
+										<td>{order.address}</td>
+									</tr>
+									<tr>
+										<td> Order status: </td>
+										<td>
+											{' '}
+											<input type='radio' /> Sent{' '}
+										</td>
+									</tr>
+								</tbody>
 							</table>
 						);
 					})}
