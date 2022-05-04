@@ -24,8 +24,6 @@ export default function Navbar() {
 	// 	setActive('false');
 	// };
 
-	console.log(isActive);
-
 	return (
 		<nav className={styles.navbar}>
 			<ul>
