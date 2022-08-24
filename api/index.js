@@ -2,7 +2,7 @@ async function postToCart(data = {}) {
 	const cartId = JSON.parse(localStorage.getItem('cartId'));
 	console.log(cartId);
 	if (!cartId) {
-		const URL = 'http://localhost:8080/api/cart/';
+		const URL = 'https://skatebordslol.herokuapp.com/api/cart/';
 		const response = await fetch(URL, {
 			method: 'POST',
 			// credentials: 'include',
@@ -16,7 +16,7 @@ async function postToCart(data = {}) {
 			.catch((err) => console.log(err));
 		localStorage.setItem('cartId', JSON.stringify(response.cartId));
 	} else if (cartId) {
-		const URL = `http://localhost:8080/api/cart/${cartId}`;
+		const URL = `https://skatebordslol.herokuapp.com/api/cart/${cartId}`;
 		const response = await fetch(URL, {
 			method: 'POST',
 			// credentials: 'include',

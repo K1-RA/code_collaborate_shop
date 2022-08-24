@@ -30,7 +30,7 @@ const Admin = () => {
 			alert(`Please enter both email and password`);
 			return;
 		}
-		await fetch('http://localhost:8080/api/admin/login', {
+		await fetch('https://skatebordslol.herokuapp.com/api/admin/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

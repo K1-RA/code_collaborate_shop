@@ -10,7 +10,7 @@ export default function Cart() {
 	}
 
 	async function incToCart(data = {}) {
-		const URL = `http://localhost:8080/api/cart/${cartId}`;
+		const URL = `https://skatebordslol.herokuapp.com/api/cart/${cartId}`;
 		const response = await fetch(URL, {
 			method: 'POST',
 			headers: {
@@ -24,7 +24,7 @@ export default function Cart() {
 	}
 
 	async function decToCart(data = {}) {
-		const URL = `http://localhost:8080/api/cart/${cartId}`;
+		const URL = `https://skatebordslol.herokuapp.com/api/cart/${cartId}`;
 		const response = await fetch(URL, {
 			method: 'DELETE',
 			headers: {
@@ -47,7 +47,7 @@ export default function Cart() {
 	useEffect(() => {
 		try {
 			if (cartId) {
-				fetch(`http://localhost:8080/api/cart/${cartId}`)
+				fetch(`https://skatebordslol.herokuapp.com/api/cart/${cartId}`)
 					.then((response) => response.json())
 					.then((data) => setCart(data));
 			}

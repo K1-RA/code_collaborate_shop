@@ -33,7 +33,7 @@ export default function Checkout() {
 			return;
 		}
 
-		await fetch('http://localhost:8080/api/orders/', {
+		await fetch('https://skatebordslol.herokuapp.com/api/orders/', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

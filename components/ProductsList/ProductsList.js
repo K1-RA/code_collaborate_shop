@@ -15,7 +15,7 @@ export default function ProductsList({ item }) {
 			<>
 				<Link
 					passHref={true}
-					href={`http://localhost:3000/products/${item._id}`}
+					href={`https://skatebordslol.herokuapp.com/products/${item._id}`}
 				>
 					<div
 						style={{

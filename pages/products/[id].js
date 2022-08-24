@@ -1,7 +1,7 @@
 import { Product } from '../../components';
 
 export const getStaticPaths = async () => {
-	const res = await fetch('http://localhost:8080/api/products');
+	const res = await fetch('https://skatebordslol.herokuapp.com/api/products');
 	console.log(res);
 	const data = await res.json();
 	console.log(data, 'data');
@@ -20,7 +20,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
 	const id = context.params.id;
-	const res = await fetch(`http://localhost:8080/api/products/${id}`);
+	const res = await fetch(
+		`https://skatebordslol.herokuapp.com/api/products/${id}`
+	);
 	const data = await res.json();
 
 	return {

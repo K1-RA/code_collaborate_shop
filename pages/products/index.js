@@ -14,7 +14,7 @@ export default function Products({ items }) {
 }
 
 export async function getServerSideProps() {
-	const res = await fetch('http://localhost:8080/api/products');
+	const res = await fetch('https://skatebordslol.herokuapp.com/api/products');
 	const items = await res.json();
 
 	return {
