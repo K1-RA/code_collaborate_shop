@@ -15,7 +15,7 @@ export default function ProductsList({ item }) {
 			<>
 				<Link
 					passHref={true}
-					href={`https://skatebordslol.netlify.app/products/${item._id}`}
+					href={`https://skateboardslol.netlify.app/products/${item._id}`}
 				>
 					<div
 						style={{
