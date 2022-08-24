@@ -11,7 +11,7 @@ const Orders = () => {
 			router.push('/admin');
 		}
 		console.log(token);
-		fetch('http://localhost:8080/api/orders/admin', {
+		fetch('http://skatebordslol.herokuapp.com/api/orders/admin', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
